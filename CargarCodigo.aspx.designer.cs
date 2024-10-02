@@ -11,16 +11,7 @@ namespace Tp_PromoWeb_Equipo_4A
 {
 
 
-    public partial class _Default
+    public partial class CargarCodigo
     {
-
-        /// <summary>
-        /// Control btnCanje.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCanje;
     }
 }

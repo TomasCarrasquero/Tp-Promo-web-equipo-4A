@@ -7,7 +7,7 @@
             <div class="container-fluid py-5">
             <h1 class="display-5 fw-bold">Promo ganá!</h1>
             <p class="col-md-8 fs-4">Ingresá el código del voucher otorgado con tu compra, y participá por increíbles premios!</p>
-            <button class="btn btn-primary btn-lg" type="button">PARTICIPÁ!</button>
+            <asp:Button ID="btnCanje" runat="server" Text="PARTICIPÁ" OnClick="btnCanje_Click" CssClass="btn btn-primary" />
             </div>
         </div>
     </main>
