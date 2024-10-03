@@ -15,7 +15,6 @@
                             <div class="card-body">
                                 <h5 class="card-title" style="color: black; text-align: center;"> <b><%: art.Nombre %></b> </h5>
                                 <p class="card-text" style="color: #4675b9; text-align: center;"><%:"$" + art.Precio %></p>
-<%--                                <asp:Button />--%>
                             </div>
                         </div>
                     </div> 
