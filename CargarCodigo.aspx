@@ -7,7 +7,7 @@
         </div>
         <div class="w-50 d-flex">
             <input type="text" id="codigo" class="form-control me-2" placeholder="XXXXXXX-XXXXXXX">
-            <button type="submit" class="btn btn-primary">Siguiente</button>
+            <button type="submit" onclick="btnSiguiente_Click" class="btn btn-primary">Siguiente</button>
         </div>
     </form>
 </asp:Content>
