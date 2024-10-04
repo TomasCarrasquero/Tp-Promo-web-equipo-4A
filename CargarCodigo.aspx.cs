@@ -16,20 +16,7 @@ namespace Tp_PromoWeb_Equipo_4A
         {
 
         }
-        //protected void btnSiguiente_Click(object sender, EventArgs e)
-        //{
-        //    string codigoVoucher = Request.Form["codigo"];
-
-        //    if (ValidarCodigoVoucher(codigoVoucher))
-        //    {
-        //        Response.Redirect("SeleccionPremio.aspx");
-        //    }
-        //    else
-        //    {
-        //        Response.Write("<script>alert('El código es inválido o ya ha sido utilizado.');</script>");
-        //    }
-        //}
-
+        
         protected void btnSiguiente_Click(object sender, EventArgs e)
         {
             CodigoNegocio negocio = new CodigoNegocio();
@@ -42,8 +29,10 @@ namespace Tp_PromoWeb_Equipo_4A
             }
             else
             {
-               // Response.Write("<script>alert('El código es inválido o ya ha sido utilizado.');</script>");
+                //Response.Write("<script>alert('El código es inválido o ya ha sido utilizado.');</script>");
+                litAlerta.Text = "<div class='alert alert-danger' role='alert'>El código es inválido o ya ha sido utilizado.</div>";
             }
+
         }
         
 

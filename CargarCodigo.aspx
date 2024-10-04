@@ -11,5 +11,7 @@
 <%--            <button type="submit" onclick="btnSiguiente_Click" class="btn btn-primary">Siguiente</button>--%>
             <asp:Button ID="btnSiguiente" runat="server" Text="Siguiente" OnClick="btnSiguiente_Click" CssClass="btn btn-primary" CommandName="" CommandArgument="" />
         </div>
+         <asp:Literal ID="litAlerta" runat="server"></asp:Literal>
     </form>
+   
 </asp:Content>
