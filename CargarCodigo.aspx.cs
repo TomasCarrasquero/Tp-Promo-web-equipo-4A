@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Dominio;
+using Microsoft.Ajax.Utilities;
 using Negocio;
 
 namespace Tp_PromoWeb_Equipo_4A
@@ -22,15 +23,24 @@ namespace Tp_PromoWeb_Equipo_4A
             CodigoNegocio negocio = new CodigoNegocio();
             
             string codigoVoucher = txtCodigo.Text;
+            
 
             if (negocio.ValidarCodigoVoucher(codigoVoucher))
             {
-                Response.Redirect("SeleccionPremio.aspx");
+                Response.Redirect("Catalogo.aspx");
             }
             else
             {
-                //Response.Write("<script>alert('El código es inválido o ya ha sido utilizado.');</script>");
-                litAlerta.Text = "<div class='alert alert-danger' role='alert'>El código es inválido o ya ha sido utilizado.</div>";
+                if (string.IsNullOrWhiteSpace(txtCodigo.Text.Trim()))
+                {
+                    litAlerta.Text = "<div class='alert alert-danger' role='alert'>Para continuar debe ingresar un código.</div>";
+
+                }
+                else
+                {
+                    litAlerta.Text = "<div class='alert alert-danger' role='alert'>El código es inválido o ya ha sido utilizado.</div>";
+                }
+
             }
 
         }
