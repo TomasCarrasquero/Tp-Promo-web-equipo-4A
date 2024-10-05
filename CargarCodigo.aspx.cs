@@ -15,9 +15,10 @@ namespace Tp_PromoWeb_Equipo_4A
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            btnInicio.Visible = false;
 
         }
-        
+
         protected void btnSiguiente_Click(object sender, EventArgs e)
         {
             CodigoNegocio negocio = new CodigoNegocio();
@@ -31,6 +32,8 @@ namespace Tp_PromoWeb_Equipo_4A
             }
             else
             {
+                btnInicio.Visible = true;
+
                 if (string.IsNullOrWhiteSpace(txtCodigo.Text.Trim()))
                 {
                     litAlerta.Text = "<div class='alert alert-danger' role='alert'>Para continuar debe ingresar un código.</div>";
@@ -44,7 +47,10 @@ namespace Tp_PromoWeb_Equipo_4A
             }
 
         }
-        
 
+        protected void btnInicio_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Default.aspx");
+        }
     }
 }

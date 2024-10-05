@@ -33,6 +33,15 @@ namespace Tp_PromoWeb_Equipo_4A
         protected global::System.Web.UI.WebControls.Button btnSiguiente;
 
         /// <summary>
+        /// Control btnInicio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnInicio;
+
+        /// <summary>
         /// Control litAlerta.
         /// </summary>
         /// <remarks>

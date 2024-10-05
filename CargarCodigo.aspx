@@ -11,7 +11,8 @@
         </div>
 
         <div class="w-100 d-flex justify-content-center mb-3">
-            <asp:Button ID="btnSiguiente" runat="server" Text="Siguiente" OnClick="btnSiguiente_Click" CssClass="btn btn-primary px-5" />
+            <asp:Button ID="btnSiguiente" runat="server" Text="Siguiente" OnClick="btnSiguiente_Click" CssClass="btn btn-primary me-2 px-5" />
+            <asp:Button ID="btnInicio" runat="server" Text="Inicio" OnClick="btnInicio_Click" CssClass="btn btn-secondary px-5" />
         </div>
         <div class="w-100 text-center">
             <asp:Literal ID="litAlerta" runat="server"></asp:Literal>
