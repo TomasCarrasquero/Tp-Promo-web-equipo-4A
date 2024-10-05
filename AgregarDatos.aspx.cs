@@ -15,32 +15,67 @@ namespace Tp_PromoWeb_Equipo_4A
         {
 
         }
-
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             try
             {
-                Cliente a = new Cliente();
                 ClienteNegocio negocio = new ClienteNegocio();
+                Cliente clienteExistente = negocio.buscarPorDNI(txtDni.Text);
 
-                a.Nombre = txtNombre.Text;
-                a.Apellido = txtApellido.Text;
-                a.Documento = txtDni.Text;
-                a.Email = txtEmail.Text;
-                a.Direccion = txtDireccion.Text;
-                a.Ciudad = txtCiudad.Text;
-                a.CP = int.Parse(txtCP.Text);
+                if (clienteExistente == null)
+                {
+                    Cliente nuevoCliente = new Cliente
+                    {
+                        Nombre = txtNombre.Text,
+                        Apellido = txtApellido.Text,
+                        Documento = txtDni.Text,
+                        Email = txtEmail.Text,
+                        Direccion = txtDireccion.Text,
+                        Ciudad = txtCiudad.Text,
+                        CP = int.Parse(txtCP.Text)
+                    };
 
-                negocio.agregar(a);
-                Response.Redirect("Catalogo.aspx");
+                    negocio.agregarConSP(nuevoCliente);
+                }
+
+                Response.Redirect("CanjeExitoso.aspx");
             }
             catch (Exception ex)
             {
                 Session.Add("error", ex);
                 throw;
             }
-            
         }
+
+
+        //-------------------------- PRUEBA------------------------------------------------
+        protected void txtDni_TextChanged(object sender, EventArgs e)
+        {
+            ClienteNegocio negocio = new ClienteNegocio();
+            string dni = txtDni.Text;
+
+            Cliente cliente = negocio.buscarPorDNI(dni);
+
+            if (cliente != null)
+            {
+                txtNombre.Text = cliente.Nombre;
+                txtApellido.Text = cliente.Apellido;
+                txtEmail.Text = cliente.Email;
+                txtDireccion.Text = cliente.Direccion;
+                txtCiudad.Text = cliente.Ciudad;
+                txtCP.Text = cliente.CP.ToString();
+            }
+            else
+            {
+                txtNombre.Text = "";
+                txtApellido.Text = "";
+                txtEmail.Text = "";
+                txtDireccion.Text = "";
+                txtCiudad.Text = "";
+                txtCP.Text = "";
+            }
+        }
+//-------------------------- PRUEBA------------------------------------------------
 
     }
 }

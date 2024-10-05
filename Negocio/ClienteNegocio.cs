@@ -41,12 +41,19 @@ namespace Negocio
                 throw ex;
             }
         }
-        public void agregar(Cliente cliente)
+        public void agregarConSP(Cliente cliente)
         {
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setQuery("INSERT INTO Clientes (Nombre, Apellido, Documento, Email, Direccion, Ciudad, CP) VALUES('" + cliente.Nombre + ", '" + cliente.Apellido + ", '" + cliente.Documento + ", '" + cliente.Email + ", '" + cliente.Direccion + ", '" + cliente.Ciudad + ", '" + cliente.CP);
+                datos.setStoreProcedure("storedAltaCliente");
+                datos.setParameters("@documento", cliente.Documento);
+                datos.setParameters("@nombre", cliente.Nombre);
+                datos.setParameters("@apellido", cliente.Apellido);
+                datos.setParameters("@email", cliente.Email);
+                datos.setParameters("@direccion", cliente.Direccion);
+                datos.setParameters("@ciudad", cliente.Ciudad);
+                datos.setParameters("@codigoPostal", cliente.CP);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -59,5 +66,67 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+        ///--------------------PRUEBA -----------------------------------------------------
+        
+        public Cliente buscarPorDNI(string documento)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            Cliente cliente = null;
+
+            try
+            {
+                datos.setStoreProcedure("storedProcedureBuscarClientePorDNI");
+                datos.setParameters("@documento", documento);
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    cliente = new Cliente();
+
+                    // Valido los NULL, sino lanza exepción
+                    cliente.Id = datos.Lector.GetInt32(0);
+
+                    cliente.Documento = datos.Lector.IsDBNull(datos.Lector.GetOrdinal("Documento"))
+                                        ? null
+                                        : (string)datos.Lector["Documento"];
+
+                    cliente.Nombre = datos.Lector.IsDBNull(datos.Lector.GetOrdinal("Nombre"))
+                                     ? null
+                                     : (string)datos.Lector["Nombre"];
+
+                    cliente.Apellido = datos.Lector.IsDBNull(datos.Lector.GetOrdinal("Apellido"))
+                                       ? null
+                                       : (string)datos.Lector["Apellido"];
+
+                    cliente.Email = datos.Lector.IsDBNull(datos.Lector.GetOrdinal("Email"))
+                                    ? null
+                                    : (string)datos.Lector["Email"];
+
+                    cliente.Direccion = datos.Lector.IsDBNull(datos.Lector.GetOrdinal("Direccion"))
+                                        ? null
+                                        : (string)datos.Lector["Direccion"];
+
+                    cliente.Ciudad = datos.Lector.IsDBNull(datos.Lector.GetOrdinal("Ciudad"))
+                                     ? null
+                                     : (string)datos.Lector["Ciudad"];
+
+                    cliente.CP = datos.Lector.IsDBNull(datos.Lector.GetOrdinal("CP"))
+                                 ? 0
+                                 : datos.Lector.GetInt32(datos.Lector.GetOrdinal("CP"));
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+            return cliente;
+        }
+
+        ///--------------------PRUEBA -----------------------------------------------------
     }
 }

@@ -11,8 +11,11 @@
 
             <div class="col-1" id="columna1" style="width: 45%;">
 
-   
-
+                <div class="form-floating mb-3">
+                    <asp:TextBox type="text" class="form-control" ID="txtDni" placeholder="Dni" required="true" runat="server"  AutoPostBack="True" OnTextChanged="txtDni_TextChanged"/>
+                    <label for="Dni">Dni *</label>
+                </div>
+                   
                 <div class="form-floating mb-3">
                     <asp:TextBox type="text" CssClass="form-control" ID="txtNombre" placeholder="Nombre" required="true" runat="server" />
                     <label for="nombre">Nombre *</label>
@@ -23,27 +26,25 @@
                     <label for="Apellido">Apellido *</label>
                 </div>
 
-                <div class="form-floating mb-3">
-                    <asp:TextBox type="text" class="form-control" ID="txtDni" placeholder="Dni" required="true" runat="server" />
-                    <label for="Dni">Dni *</label>
-                </div>
+                 <div class="form-floating mb-3">
+                    <asp:TextBox type="text" ID="txtEmail" placeholder="name@example.com" CssClass="form-control" required="true" runat="server" />
+                    <label for="Email">Email *</label>
+                 </div>
 
-                <div id="sexo">
+            
+            <%-- <div id="sexo">
                     <asp:RadioButtonList ID="rblist" runat="server">
                         <asp:ListItem Value="m" cssClass="w3-radio" id="rbtnM">Masculino</asp:ListItem>
                         <asp:ListItem Value="f" cssClass="w3-radio" id="rbtnF">Femenino</asp:ListItem>
                         <asp:ListItem Value="x" cssClass="w3-radio" id="rbtnX">Otro</asp:ListItem>
                     </asp:RadioButtonList>
-                </div>
+                </div> --%>
 
             </div>
+
             <div class="col-2" id="columna2" style="display: flex; flex-direction: column; justify-content: space-around; width: 45%;">
 
-                <div class="form-floating mb-3">
-                    <asp:TextBox type="text" ID="txtEmail" placeholder="name@example.com" CssClass="form-control" required="true" runat="server" />
-                    <label for="Email">Email *</label>
-                </div>
-
+               
                 <%--<div class="form-floating mb-3">
                     <asp:TextBox type="text" CssClass="form-control" ID="txtCelular" placeholder="Celular" runat="server" />
                     <label for="celular">Celular</label>
@@ -74,8 +75,8 @@
             </div>
         </div>
         <div id="agregar" class="col-3" style="display: flex; justify-content: end; width: 100%; margin-top: 2em; margin-right: 15em">
-            <asp:Button Text="Agregar" ID="btnAgregar" CssClass="btn btn-outline-success" OnClick="btnAgregar_Click" runat="server" />
-            <asp:Button Text="Eliminar" CssClass="btn btn-outline-danger m-1" ID="btnEliminar" runat="server" />
+            <asp:Button Text="¡Participa!" ID="btnAgregar" CssClass="btn btn-outline-success" OnClick="btnAgregar_Click" runat="server" />
+            <%-- <asp:Button Text="Eliminar" CssClass="btn btn-outline-danger m-1" ID="btnEliminar" runat="server" /> --%>
         </div>
         <br />
         <div>
