@@ -86,33 +86,19 @@ namespace Negocio
                     // Valido los NULL, sino lanza exepción
                     cliente.Id = datos.Lector.GetInt32(0);
 
-                    cliente.Documento = datos.Lector.IsDBNull(datos.Lector.GetOrdinal("Documento"))
-                                        ? null
-                                        : (string)datos.Lector["Documento"];
+                    cliente.Documento = (string)datos.Lector["Documento"];
 
-                    cliente.Nombre = datos.Lector.IsDBNull(datos.Lector.GetOrdinal("Nombre"))
-                                     ? null
-                                     : (string)datos.Lector["Nombre"];
+                    cliente.Nombre = (string)datos.Lector["Nombre"];
 
-                    cliente.Apellido = datos.Lector.IsDBNull(datos.Lector.GetOrdinal("Apellido"))
-                                       ? null
-                                       : (string)datos.Lector["Apellido"];
+                    cliente.Apellido = (string)datos.Lector["Apellido"];
 
-                    cliente.Email = datos.Lector.IsDBNull(datos.Lector.GetOrdinal("Email"))
-                                    ? null
-                                    : (string)datos.Lector["Email"];
+                    cliente.Email = (string)datos.Lector["Email"];
 
-                    cliente.Direccion = datos.Lector.IsDBNull(datos.Lector.GetOrdinal("Direccion"))
-                                        ? null
-                                        : (string)datos.Lector["Direccion"];
+                    cliente.Direccion = (string)datos.Lector["Direccion"];
 
-                    cliente.Ciudad = datos.Lector.IsDBNull(datos.Lector.GetOrdinal("Ciudad"))
-                                     ? null
-                                     : (string)datos.Lector["Ciudad"];
+                    cliente.Ciudad = (string)datos.Lector["Ciudad"];
 
-                    cliente.CP = datos.Lector.IsDBNull(datos.Lector.GetOrdinal("CP"))
-                                 ? 0
-                                 : datos.Lector.GetInt32(datos.Lector.GetOrdinal("CP"));
+                    cliente.CP = datos.Lector.GetInt32(7);
                 }
             }
             catch (Exception ex)

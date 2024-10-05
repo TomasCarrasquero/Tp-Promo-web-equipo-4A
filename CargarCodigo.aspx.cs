@@ -28,7 +28,8 @@ namespace Tp_PromoWeb_Equipo_4A
 
             if (negocio.ValidarCodigoVoucher(codigoVoucher))
             {
-                Response.Redirect("Catalogo.aspx");
+                Session.Add("codigo", codigoVoucher);
+                Response.Redirect("Catalogo.aspx", false);
             }
             else
             {

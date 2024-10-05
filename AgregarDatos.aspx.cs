@@ -13,7 +13,10 @@ namespace Tp_PromoWeb_Equipo_4A
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["codigo"] == null)
+            {
+                Response.Redirect("Error.aspx");
+            }
         }
         protected void btnAgregar_Click(object sender, EventArgs e)
         {

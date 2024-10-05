@@ -11,7 +11,7 @@ namespace Tp_PromoWeb_Equipo_4A
 {
 
 
-    public partial class CanjeExitoso
+    public partial class Error
     {
 
         /// <summary>

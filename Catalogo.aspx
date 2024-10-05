@@ -17,7 +17,7 @@
                     <h5 class="card-title"> <b><%= art.Nombre %></b> </h5>
 <%--                    <p class="card-text"><%= "$" + art.Descripcion %></p>--%>
                     <div class="boton">
-                        <asp:Button ID="btnElegir" runat="server" Text="Elegir!" CssClass="btn btn-primary" />
+                        <asp:Button ID="btnElegir" runat="server" Text="Elegir!" OnClick="btnElegir_Click" CssClass="btn btn-primary" />
                     </div>
                 </div>
             </div>
