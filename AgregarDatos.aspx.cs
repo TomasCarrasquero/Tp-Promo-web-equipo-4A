@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Dominio;
+using Negocio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,5 +15,32 @@ namespace Tp_PromoWeb_Equipo_4A
         {
 
         }
+
+        protected void btnAgregar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cliente a = new Cliente();
+                ClienteNegocio negocio = new ClienteNegocio();
+
+                a.Nombre = txtNombre.Text;
+                a.Apellido = txtApellido.Text;
+                a.Documento = txtDni.Text;
+                a.Email = txtEmail.Text;
+                a.Direccion = txtDireccion.Text;
+                a.Ciudad = txtCiudad.Text;
+                a.CP = int.Parse(txtCP.Text);
+
+                negocio.agregar(a);
+                Response.Redirect("Catalogo.aspx");
+            }
+            catch (Exception ex)
+            {
+                Session.Add("error", ex);
+                throw;
+            }
+            
+        }
+
     }
 }

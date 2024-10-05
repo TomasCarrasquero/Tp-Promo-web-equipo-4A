@@ -38,26 +38,43 @@
 
             </div>
             <div class="col-2" id="columna2" style="display: flex; flex-direction: column; justify-content: space-around; width: 45%;">
-                <div class="form-floating mb-3">
-                    <asp:TextBox type="text" ID="txtEmail" placeholder="name@example.com" CssClass="form-control" runat="server" />
-                    <label for="email">Email</label>
-                </div>
 
                 <div class="form-floating mb-3">
+                    <asp:TextBox type="text" ID="txtEmail" placeholder="name@example.com" CssClass="form-control" required="true" runat="server" />
+                    <label for="Email">Email *</label>
+                </div>
+
+                <%--<div class="form-floating mb-3">
                     <asp:TextBox type="text" CssClass="form-control" ID="txtCelular" placeholder="Celular" runat="server" />
                     <label for="celular">Celular</label>
+                </div>--%>
+
+                    <div class="form-floating mb-3">
+                    <asp:TextBox type="text" CssClass="form-control" ID="txtDireccion" placeholder="Dirección" required="true" runat="server" />
+                    <label for="Direccion">Dirección *</label>
+                </div>
+ 
+                     <div class="form-floating mb-3">
+                     <asp:TextBox type="text" CssClass="form-control" ID="txtCiudad" placeholder="Ciudad" required="true" runat="server" />
+                     <label for="Ciudad">Ciudad *</label>
                 </div>
 
-                    <div id="fecha-ls" style="padding-top:20px;">
+                     <div class="form-floating mb-3">
+                     <asp:TextBox type="text" CssClass="form-control" ID="txtCP" placeholder="CP" required="true" runat="server" />
+                     <label for="CP">Código Postal *</label>
+                </div>
+
+
+                   <%-- <div id="fecha-ls" style="padding-top:20px;">
 
                         <label for="fecha">Fecha *</label>
                         <asp:textbox type="date" id="fecha" class="form-select" AutoPostBack="true" onkeydown="return false;" runat="server"></asp:textbox>
 
-                    </div>
+                    </div> --%>
             </div>
         </div>
         <div id="agregar" class="col-3" style="display: flex; justify-content: end; width: 100%; margin-top: 2em; margin-right: 15em">
-            <asp:Button Text="Agregar" CssClass="btn btn-outline-success" ID="btnAgregar" runat="server" />
+            <asp:Button Text="Agregar" ID="btnAgregar" CssClass="btn btn-outline-success" OnClick="btnAgregar_Click" runat="server" />
             <asp:Button Text="Eliminar" CssClass="btn btn-outline-danger m-1" ID="btnEliminar" runat="server" />
         </div>
         <br />
