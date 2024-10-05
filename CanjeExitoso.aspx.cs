@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Tp_PromoWeb_Equipo_4A
 {
-    public partial class SeleccionPremio : System.Web.UI.Page
+    public partial class CanjeExitoso : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
