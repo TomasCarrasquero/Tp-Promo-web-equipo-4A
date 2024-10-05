@@ -29,17 +29,17 @@ namespace Negocio
                     if (!(datos.Lector.IsDBNull(datos.Lector.GetOrdinal("IdCliente"))))
                         cod.IdCLiente = datos.Lector.GetInt32(datos.Lector.GetOrdinal("IdCliente"));
                     else
-                        cod.IdCLiente = null;
+                        cod.IdCLiente = -1;
 
                     if (!(datos.Lector.IsDBNull(datos.Lector.GetOrdinal("FechaCanje"))))
-                        cod.FechaCanje = (DateTime?)datos.Lector["FechaCanje"];
+                        cod.FechaCanje = (DateTime)datos.Lector["FechaCanje"];
                     else
-                        cod.FechaCanje = null;
+                        cod.FechaCanje = DateTime.MinValue;
 
                     if (!(datos.Lector.IsDBNull(datos.Lector.GetOrdinal("IdArticulo"))))
                         cod.IdArticulo = datos.Lector.GetInt32(datos.Lector.GetOrdinal("IdArticulo"));
                     else
-                        cod.IdArticulo = null;
+                        cod.IdArticulo = -1;
 
                     //  if (!(datos.Lector["IdCliente"] is DBNull))
                     //      cod.IdCLiente = datos.Lector.GetInt32(1);
@@ -70,7 +70,7 @@ namespace Negocio
             {
                 if (codigo == cod.CodigoVoucher)
                 {
-                    if (!cod.FechaCanje.HasValue)
+                    if (cod.FechaCanje == DateTime.MinValue && cod.IdArticulo == -1 && cod.IdCLiente == -1)
                     {
                         codigoEsValido = true;
                         return codigoEsValido;

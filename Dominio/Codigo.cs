@@ -10,11 +10,11 @@ namespace Dominio
     {
         public string CodigoVoucher {  get; set; }
         //public int IdCLiente { get; set; }
-        public int? IdCLiente { get; set; }
+        public int IdCLiente { get; set; }
         //public DateTime FechaCanje { get; set; }
-        public DateTime? FechaCanje { get; set; }
+        public DateTime FechaCanje { get; set; }
         //public int IdArticulo { get; set; }
-        public int? IdArticulo { get; set; }
+        public int IdArticulo { get; set; }
 
     }
 }
