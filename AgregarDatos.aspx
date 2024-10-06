@@ -32,23 +32,11 @@
                  </div>
 
             
-            <%-- <div id="sexo">
-                    <asp:RadioButtonList ID="rblist" runat="server">
-                        <asp:ListItem Value="m" cssClass="w3-radio" id="rbtnM">Masculino</asp:ListItem>
-                        <asp:ListItem Value="f" cssClass="w3-radio" id="rbtnF">Femenino</asp:ListItem>
-                        <asp:ListItem Value="x" cssClass="w3-radio" id="rbtnX">Otro</asp:ListItem>
-                    </asp:RadioButtonList>
-                </div> --%>
 
             </div>
 
             <div class="col-2" id="columna2" style="display: flex; flex-direction: column; justify-content: space-around; width: 45%;">
 
-               
-                <%--<div class="form-floating mb-3">
-                    <asp:TextBox type="text" CssClass="form-control" ID="txtCelular" placeholder="Celular" runat="server" />
-                    <label for="celular">Celular</label>
-                </div>--%>
 
                     <div class="form-floating mb-3">
                     <asp:TextBox type="text" CssClass="form-control" ID="txtDireccion" placeholder="Dirección" required="true" runat="server" />
@@ -65,13 +53,6 @@
                      <label for="CP">Código Postal *</label>
                 </div>
 
-
-                   <%-- <div id="fecha-ls" style="padding-top:20px;">
-
-                        <label for="fecha">Fecha *</label>
-                        <asp:textbox type="date" id="fecha" class="form-select" AutoPostBack="true" onkeydown="return false;" runat="server"></asp:textbox>
-
-                    </div> --%>
             </div>
         </div>
         <div id="agregar" class="col-3" style="display: flex; justify-content: end; width: 100%; margin-top: 2em; margin-right: 15em">
