@@ -39,6 +39,7 @@ namespace Tp_PromoWeb_Equipo_4A
                     };
 
                     negocio.agregarConSP(nuevoCliente);
+
                 }
 
                 Response.Redirect("CanjeExitoso.aspx");
@@ -78,7 +79,28 @@ namespace Tp_PromoWeb_Equipo_4A
                 txtCP.Text = "";
             }
         }
-//-------------------------- PRUEBA------------------------------------------------
+        //-------------------------- PRUEBA------------------------------------------------
+        private void EnviarMail(Cliente cliente)
+        {   
 
+            if (string.IsNullOrEmpty(cliente.Email))
+            {
+                return;
+            }
+
+            string nombreApellido = cliente.Apellido + ", " + cliente.Nombre;
+            string emaildestino = cliente.Email;
+
+            EmailService emailService = new EmailService();
+            emailService.armarMail(emaildestino, nombreApellido);
+            try
+            {
+                emailService.enviarEmail();
+            }
+            catch (Exception ex)
+            {
+                Session.Add("error", ex);
+            }
+        }
     }
 }

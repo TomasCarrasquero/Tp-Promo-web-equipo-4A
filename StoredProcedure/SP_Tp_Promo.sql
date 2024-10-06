@@ -33,3 +33,14 @@ AS
 INSERT INTO Clientes VALUES(@documento, @nombre, @apellido, @email, @direccion, @ciudad, @codigoPostal)
 
 GO
+
+-- listar vouchers
+CREATE OR ALTER PROCEDURE storedProcedureListarCodigo AS
+select * from Vouchers
+
+GO
+
+-- listar Articulos
+ CREATE OR ALTER PROCEDURE storedProcedureListar AS
+ SELECT A.Id ,Codigo, Nombre, A.Descripcion, M.Descripcion AS 'Marca', M.Id, C.Descripcion AS 'Categoría', C.Id, Precio FROM ARTICULOS A, MARCAS M , CATEGORIAS C where M.Id = A.IdMarca and A.IdCategoria = c.Id
+ GO
