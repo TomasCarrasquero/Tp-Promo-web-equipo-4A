@@ -39,7 +39,7 @@ namespace Tp_PromoWeb_Equipo_4A
                     };
 
                     negocio.agregarConSP(nuevoCliente);
-
+                    EnviarMail(nuevoCliente);
                 }
 
                 Response.Redirect("CanjeExitoso.aspx");
