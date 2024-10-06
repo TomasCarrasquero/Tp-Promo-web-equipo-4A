@@ -83,7 +83,6 @@ namespace Negocio
                 {
                     cliente = new Cliente();
 
-                    // Valido los NULL, sino lanza exepción
                     cliente.Id = datos.Lector.GetInt32(0);
 
                     cliente.Documento = (string)datos.Lector["Documento"];

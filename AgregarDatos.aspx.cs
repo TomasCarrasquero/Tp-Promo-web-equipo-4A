@@ -22,24 +22,43 @@ namespace Tp_PromoWeb_Equipo_4A
         {
             try
             {
+                string codigo = (string)Session["codigo"];
+                int IdArticulo = (int)Session["IdArticulo"];
                 ClienteNegocio negocio = new ClienteNegocio();
+                CodigoNegocio codNegocio = new CodigoNegocio();
                 Cliente clienteExistente = negocio.buscarPorDNI(txtDni.Text);
 
                 if (clienteExistente == null)
                 {
-                    Cliente nuevoCliente = new Cliente
-                    {
-                        Nombre = txtNombre.Text,
-                        Apellido = txtApellido.Text,
-                        Documento = txtDni.Text,
-                        Email = txtEmail.Text,
-                        Direccion = txtDireccion.Text,
-                        Ciudad = txtCiudad.Text,
-                        CP = int.Parse(txtCP.Text)
-                    };
 
+                    Cliente nuevoCliente = new Cliente();
+                    nuevoCliente.Nombre = txtNombre.Text;
+                    nuevoCliente.Apellido = txtApellido.Text;
+                    nuevoCliente.Documento = txtDni.Text;
+                    nuevoCliente.Email = txtEmail.Text;
+                    nuevoCliente.Direccion = txtDireccion.Text;
+                    nuevoCliente.Ciudad = txtCiudad.Text;
+                    nuevoCliente.CP = int.Parse(txtCP.Text);
                     negocio.agregarConSP(nuevoCliente);
+<<<<<<< Updated upstream
                     EnviarMail(nuevoCliente);
+=======
+                    Cliente cliente = negocio.buscarPorDNI(nuevoCliente.Documento);
+                    codNegocio.ModificarVoucherConSP(codigo, cliente.Id, IdArticulo);
+
+                }
+                else
+                {
+
+                    if (Session["codigo"] == null || Session["IdArticulo"] == null)
+                    {
+                        Response.Redirect("Error.aspx", false);
+                    }
+                    else
+                    {
+                        codNegocio.ModificarVoucherConSP(codigo, clienteExistente.Id, IdArticulo);
+                    }
+>>>>>>> Stashed changes
                 }
 
                 Response.Redirect("CanjeExitoso.aspx");
@@ -80,8 +99,11 @@ namespace Tp_PromoWeb_Equipo_4A
             }
         }
         //-------------------------- PRUEBA------------------------------------------------
+<<<<<<< Updated upstream
         private void EnviarMail(Cliente cliente)
         {   
+=======
+>>>>>>> Stashed changes
 
             if (string.IsNullOrEmpty(cliente.Email))
             {

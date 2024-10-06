@@ -61,6 +61,29 @@ namespace Negocio
             }
         }
 
+        public void ModificarVoucherConSP(string codigo, int IdCliente, int IdArticulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setStoreProcedure("soredProcedureModificarVoucher");
+                datos.setParameters("@CodigoVoucher", codigo);
+                datos.setParameters("@IdCliente", IdCliente);
+                datos.setParameters("@FechaCanje", DateTime.Now.ToShortDateString());
+                datos.setParameters("@IdArticulo", IdArticulo);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
         public bool ValidarCodigoVoucher(string codigo)
         {
             bool codigoEsValido = false;
