@@ -40,9 +40,9 @@ namespace Tp_PromoWeb_Equipo_4A
                     nuevoCliente.Ciudad = txtCiudad.Text;
                     nuevoCliente.CP = int.Parse(txtCP.Text);
                     negocio.agregarConSP(nuevoCliente);
-<<<<<<< Updated upstream
+
                     EnviarMail(nuevoCliente);
-=======
+
                     Cliente cliente = negocio.buscarPorDNI(nuevoCliente.Documento);
                     codNegocio.ModificarVoucherConSP(codigo, cliente.Id, IdArticulo);
 
@@ -58,7 +58,7 @@ namespace Tp_PromoWeb_Equipo_4A
                     {
                         codNegocio.ModificarVoucherConSP(codigo, clienteExistente.Id, IdArticulo);
                     }
->>>>>>> Stashed changes
+
                 }
 
                 Response.Redirect("CanjeExitoso.aspx");
@@ -99,11 +99,9 @@ namespace Tp_PromoWeb_Equipo_4A
             }
         }
         //-------------------------- PRUEBA------------------------------------------------
-<<<<<<< Updated upstream
+
         private void EnviarMail(Cliente cliente)
         {   
-=======
->>>>>>> Stashed changes
 
             if (string.IsNullOrEmpty(cliente.Email))
             {
