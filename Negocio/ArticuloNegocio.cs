@@ -70,8 +70,11 @@ namespace Negocio
             }
             catch (Exception ex)
             {
-
                 throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
             }
         }
         public List<Imagen> listaImagenesXArt(Articulo art)
@@ -82,27 +85,27 @@ namespace Negocio
             {
                 datos.setQuery("SELECT id, IdArticulo, ImagenUrl FROM IMAGENES WHERE IdArticulo = " + art.Id);
                 datos.ejecutarLectura();
+                
                 while (datos.Lector.Read())
                 {
                     Imagen imagen = new Imagen();
                     imagen.ID_Imagen = datos.Lector.GetInt32(0);
                     imagen.ID_Art = datos.Lector.GetInt32(1);
                     imagen.Url = (string)datos.Lector["ImagenUrl"];
-
-
+                    
                     lista.Add(imagen);
                 }
-                return lista;
             }
-            catch (Exception ex)
+            catch
             {
-
-                throw ex;
+                Console.WriteLine("Ocurrió un error obteniendo imagenes por articulo");
             }
             finally
             {
                 datos.cerrarConexion();
             }
+
+            return lista;
         }
 
         public List<Articulo> filtrar(string campo, string criterio, string filtro)

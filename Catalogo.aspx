@@ -24,12 +24,30 @@
         <% } %>--%>
 
 
-
-        <asp:Repeater runat="server" ID="repetidor" OnItemDataBound="repetidor_ItemDataBound">
+        <asp:Repeater runat="server" ID="repetidor">
             <ItemTemplate>
                 <div class="col">
-                    <div class="card tarjeta">
-                        <asp:Image ID="imgArticulo" runat="server" CssClass="img-thumbnail" />
+                    <div class="card" style="width: 18rem;">
+
+                        <div id="cardCarousel_<%# Eval("Id") %>" class="carousel slide card-carousel" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <asp:Repeater ID="rptImagenes" runat="server" DataSource='<%# Eval("Imagenes") %>'>
+                                    <ItemTemplate>
+                                        <div class="carousel-item <%# Container.ItemIndex == 0 ? "active" : "" %>">
+                                            <img src='<%# Eval("Url") %>' class="d-block w-100" alt="Imagen del artículo">
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#cardCarousel_<%# Eval("Id") %>" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#cardCarousel_<%# Eval("Id") %>" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
                         <div class="card-body">
                             <h5 class="card-title"><b><%#Eval("Nombre") %></b> </h5>
                             <div class="boton">
@@ -58,6 +76,17 @@
             text-align: center;
             margin-top: auto;
             padding-bottom: 10px;
+        }
+
+        .card-carousel img {
+            width: 100%;
+            height: 200px; 
+            object-fit: contain; 
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+              background-color: darkgrey;
         }
     </style>
 </asp:Content>
